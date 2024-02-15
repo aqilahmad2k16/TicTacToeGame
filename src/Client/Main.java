@@ -11,7 +11,7 @@ import models.Player;
 public class Main {
 	public static void main(String[] args) throws BotCountException, SymbolCountException, PlayerCountDimensionMismatchException {
 		GameControllers gameControllers = new GameControllers();
-		//we have started the game
+		//we have started the game, will do other stuff as well
 		Game game = gameControllers.startGame(3, null, null);
 		
 		while(gameControllers.checkState(game).equals(GameState.IN_PROGRESS)) {
