@@ -6,17 +6,22 @@ import java.util.List;
 import java.util.Map;
 
 
-import Strategy.WinningStrategy.WinningStrategies;
 import exception.BotCountException;
 import exception.PlayerCountDimensionMismatchException;
 import exception.SymbolCountException;
+import winningStrategies.WinningStrategy;
 
 public class Game {
 	//add parameter
 	private Board board;
 	private List<Player> players;
 	private List<Move> moves;
-	public Game(List<Player> players,WinningStrategies winningStrategies, int dimension) {
+	private GameState gameState;
+	private int currentPlayerIndex;
+	private Player winner;
+	private WinningStrategy winningStrategies;
+	
+	public Game(List<Player> players,WinningStrategy winningStrategies, int dimension) {
 		super();
 		this.board = new Board(dimension);
 		this.players = players;
@@ -26,10 +31,6 @@ public class Game {
 		this.winningStrategies = winningStrategies;
 	}
 
-	private GameState gameState;
-	private int currentPlayerIndex;
-	private Player winner;
-	private WinningStrategies winningStrategies;
 	public Board getBoard() {
 		return board;
 	}
@@ -66,10 +67,10 @@ public class Game {
 	public void setWinner(Player winner) {
 		this.winner = winner;
 	}
-	public WinningStrategies getWinningStrategies() {
+	public WinningStrategy getWinningStrategies() {
 		return winningStrategies;
 	}
-	public void setWinningStrategies(WinningStrategies winningStrategies) {
+	public void setWinningStrategies(WinningStrategy winningStrategies) {
 		this.winningStrategies = winningStrategies;
 	}
 	
@@ -83,7 +84,7 @@ public class Game {
 	
 	public static class Builder {
 		private List<Player>players;
-		private WinningStrategies winningStrategies;
+		private WinningStrategy winningStrategies;
 		private int dimension;
 		
 //		public Builder(List<Player> players, WinningStrategies winningStrategies, int dimension) {
@@ -99,10 +100,10 @@ public class Game {
 			this.players = players;
 			return this;
 		}
-		public WinningStrategies getWinningStrategies() {
+		public WinningStrategy getWinningStrategies() {
 			return winningStrategies;
 		}
-		public Builder setWinningStrategies(WinningStrategies winningStrategies) {
+		public Builder setWinningStrategies(WinningStrategy winningStrategies) {
 			this.winningStrategies = winningStrategies;
 			return this;
 		}

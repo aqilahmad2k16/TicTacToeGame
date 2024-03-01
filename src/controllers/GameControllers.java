@@ -2,17 +2,17 @@ package controllers;
 
 import java.util.List;
 
-import Strategy.WinningStrategy.WinningStrategies;
 import exception.BotCountException;
 import exception.PlayerCountDimensionMismatchException;
 import exception.SymbolCountException;
 import models.Game;
 import models.GameState;
 import models.Player;
+import winningStrategies.WinningStrategy;
 
 public class GameControllers {
 	
-	public Game startGame(int dimension, List<Player> players, WinningStrategies winningStrategies) throws SymbolCountException, PlayerCountDimensionMismatchException, BotCountException{
+	public Game startGame(int dimension, List<Player> players, WinningStrategy winningStrategies) throws SymbolCountException, PlayerCountDimensionMismatchException, BotCountException{
 		//this method will return object of game, here will be using builder design pattern to create object
 		return Game.getBuilder()
 				.setDimension(dimension)
