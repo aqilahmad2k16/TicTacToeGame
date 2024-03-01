@@ -28,8 +28,8 @@ public class GameControllers {
 		game.displayBoard();
 	}
 	
-	public void undu() {
-		
+	public void undu(Game game) {
+		game.undo(game);
 	}
 
 	public  GameState checkState(Game game) {

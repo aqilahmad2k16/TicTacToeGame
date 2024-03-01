@@ -196,5 +196,14 @@ public class Game {
 		
 		currentPlayerIndex = (currentPlayerIndex + 1) % players.size();
 	}
+
+	public void undo(Game game) {
+		int currentPlayerIndex = game.getCurrentPlayerIndex();
+		Player player = game.players.get(currentPlayerIndex);
+		Move move = game.moves.get(currentPlayerIndex);
+		winningStrategies.handleUndu(move, board);
+		
+		
+	}
 	
 }

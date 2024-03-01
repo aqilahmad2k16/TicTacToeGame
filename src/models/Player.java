@@ -7,6 +7,15 @@ public class Player {
 	private int id;
 	private Symbol symbol;
 	private PlayerType playerType;
+	
+	public Player(String name, int id, Symbol symbol, PlayerType playerType) {
+		super();
+		this.name = name;
+		this.id = id;
+		this.symbol = symbol;
+		this.playerType = playerType;
+	}
+	
 	public PlayerType getPlayerType() {
 		return playerType;
 	}
